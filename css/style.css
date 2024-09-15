@@ -268,8 +268,6 @@ section {
 .family .container .family-member:hover img {
     border: none;
     box-shadow: 1px 1px 10px 4px var(--green);
-    border-radius: 0%;
-    width: 30rem;
     cursor: pointer;
 }
 
@@ -444,7 +442,7 @@ section {
         z-index: 1000;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
         padding: 2rem 2%;
         background: #fff;
         box-shadow: var(--box-shadow);
@@ -537,9 +535,9 @@ section {
     .home {
         display: flex;
         justify-content: center;
-        margin-top: 6.5rem;
+        margin-top: 9rem;
         width: 100vw;
-        height: 80vh;
+        height: 90vh;
     }
     .home .container {
         backdrop-filter: blur(0.5rem);
@@ -550,10 +548,12 @@ section {
         z-index: 1;
     }
     .home img {
-        width: 100vw;
-        height: 78vh;
-        position: absolute;
-        z-index: 1;
+    width: 100vw;
+    padding-top: 0;
+    margin-top: -2.5rem;
+    height: 91vh;
+    position: absolute;
+    z-index: 1;
     }
 
     .location .container {
@@ -564,7 +564,7 @@ section {
     .location iframe {
         border: 0;
         width: 100vw;
-        height: 70vh;
+        height: 75vh;
     }
     .family .container {
         display: flex;
@@ -624,14 +624,12 @@ section {
         border-radius: 50%;
         transition: all 0.2s linear;
     }
-    .family .container .children .text{
+    .family .container .children .text {
         font-size: 1.5rem;
     }
     .family .container .family-member:hover img {
         border: none;
         box-shadow: 1px 1px 10px 4px var(--green);
-        border-radius: 0%;
-        width: 30rem;
         cursor: pointer;
     }
 
