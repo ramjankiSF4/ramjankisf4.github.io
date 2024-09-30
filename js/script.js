@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const menu = document.querySelector(".navbar");
+  const menu = document.querySelector(".header .menu");
   const menuBtn = document.querySelector("#menu-btn");
   const backtotop = document.getElementById("back-to-top-btn");
   // Toggle menu visibility on click
