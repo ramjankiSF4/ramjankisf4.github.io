@@ -149,7 +149,9 @@ section {
 #menu-btn {
     display: none;
 }
-
+.header .menu {
+    display: none;
+}
 .pendulum:hover {
     animation: pendulum 1s infinite;
     cursor: pointer;
@@ -278,7 +280,7 @@ section {
 }
 .footer .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
     gap: 5rem;
 }
 .footer .box-container .box .logo {
@@ -379,7 +381,6 @@ section {
 }
 /* Mobile Devices (up to 768px) */
 @media only screen and (max-width: 768px) {
-    /* Adjust styles for mobile devices */
     @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
     .material-symbols-rounded {
         font-family: "Material Symbols Outlined";
@@ -473,12 +474,6 @@ section {
     .header .navbar {
         display: none;
     }
-
-    .header .navbar a:hover {
-        color: var(--theme);
-        cursor: pointer;
-        font-weight: bold;
-    }
     .header .navbar-right {
         display: flex;
     }
@@ -488,14 +483,42 @@ section {
         width: 4.5rem;
         line-height: 4.5rem;
         color: #000;
-        margin-right: 0.3rem;
+        margin-right: 0;
         text-align: center;
     }
 
     #menu-btn {
-        display: none;
+        display: block;
+    }
+    .header .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        position: absolute;
+        top: 110%;
+        right: -110%;
+        padding: 1rem;
+        border-radius: var(--border);
+        box-shadow: var(--box-shadow);
+        width: 12rem;
+        background: #fff;
+    }
+    .header .menu a {
+        font-size: 2rem;
+        font-weight: 500;
+        margin: 0 1rem;
+        color: #000;
+    }
+    .header .menu a :hover {
+        color: var(--theme);
+        cursor: pointer;
+        font-weight: bold;
     }
 
+    .header .menu.active {
+        right: 0;
+    }
     .pendulum:hover {
         animation: pendulum 1s infinite;
         cursor: pointer;
@@ -544,16 +567,16 @@ section {
         font-weight: bold;
         text-align: center;
         align-self: flex-end;
-        padding-bottom: 1rem;
+        padding-bottom: 5rem;
         z-index: 1;
     }
     .home img {
-    width: 100vw;
-    padding-top: 0;
-    margin-top: -2.5rem;
-    height: 91vh;
-    position: absolute;
-    z-index: 1;
+        width: 100vw;
+        padding-top: 0;
+        margin-top: -2.5rem;
+        height: 91vh;
+        position: absolute;
+        z-index: 1;
     }
 
     .location .container {
@@ -562,9 +585,7 @@ section {
         align-items: flex-start;
     }
     .location iframe {
-        border: 0;
         width: 100vw;
-        height: 75vh;
     }
     .family .container {
         display: flex;
@@ -640,7 +661,7 @@ section {
     }
     .footer .box-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
         gap: 1rem;
     }
     .footer .box-container .box .logo {
@@ -743,16 +764,774 @@ section {
 
 /* Tablets and Small Laptops (769px to 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
-    /* Adjust styles for tablets and smaller laptops */
-    body {
-        background-color: green;
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    .material-symbols-rounded {
+        font-family: "Material Symbols Outlined";
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px; /* Preferred icon size */
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+        vertical-align: middle;
+    }
+
+    .heading {
+        font-size: 3.5rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 2rem 0;
+        color: #000;
+    }
+    .sub-heading {
+        font-weight: bold;
+        text-align: center;
+        color: #000;
+        font-size: 2rem;
+        padding: 1rem 0;
+        line-height: 1.8;
+    }
+    .text {
+        font-size: 1.7rem;
+        text-align: center;
+        padding: 1rem 0;
+        color: #000;
+    }
+    .heading span {
+        background: var(--theme);
+        color: #fff;
+        display: inline-block;
+        padding: 0.5rem 3rem;
+        clip-path: polygon(100% 0%, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+    }
+    @keyframes animateButtonBackground {
+        0% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .header {
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 2rem 2%;
+        background: #fff;
+        box-shadow: var(--box-shadow);
+    }
+    .header .navbar-left {
+        display: flex;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .logo a {
+        font-size: 2rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #000;
+    }
+    .logo a:hover {
+        color: var(--theme);
+        cursor: pointer;
+    }
+    .logo img {
+        margin-right: 0.5rem;
+        width: 4.5rem;
+        height: auto;
+    }
+
+    .header .navbar a {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin: 0 1rem;
+        color: #000;
+    }
+    .header .navbar a:hover {
+        color: var(--theme);
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .header .navbar-right {
+        display: flex;
+    }
+    .header .navbar-right span {
+        font-size: 2.5rem;
+        height: 4.5rem;
+        width: 4.5rem;
+        line-height: 4.5rem;
+        color: #000;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    #menu-btn {
+        display: none;
+    }
+    .header .menu {
+        display: none;
+    }
+    .header .menu a {
+        font-size: 2rem;
+        font-weight: 500;
+        margin: 0 1rem;
+        color: #000;
+    }
+    .header .menu a :hover {
+        color: var(--theme);
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .header .menu.active {
+        right: 0;
+    }
+    .pendulum:hover {
+        animation: pendulum 1s infinite;
+        cursor: pointer;
+    }
+    .wheel:hover {
+        animation: wheel 1s infinite;
+        cursor: pointer;
+    }
+    @keyframes pendulum {
+        0% {
+            font-variation-settings: "FILL" 0;
+            transform: rotate(20deg);
+        }
+        50% {
+            font-variation-settings: "FILL" 1;
+            transform: rotate(-20deg);
+        }
+        100% {
+            font-variation-settings: "FILL" 0;
+            transform: rotate(20deg);
+        }
+    }
+    @keyframes wheel {
+        0% {
+            font-variation-settings: "FILL" 0;
+            transform: rotate(0deg);
+        }
+        50% {
+            font-variation-settings: "FILL" 1;
+            transform: rotate(180deg);
+        }
+        100% {
+            font-variation-settings: "FILL" 0;
+            transform: rotate(360deg);
+        }
+    }
+    .home {
+        display: flex;
+        justify-content: center;
+        margin-top: 9rem;
+        width: 100vw;
+        height: 90vh;
+    }
+    .home .container {
+        backdrop-filter: blur(0.5rem);
+        font-weight: bold;
+        text-align: center;
+        align-self: flex-end;
+        padding-bottom: 5rem;
+        z-index: 1;
+    }
+    .home img {
+        width: 100vw;
+        padding-top: 0;
+        margin-top: -2.5rem;
+        height: 91vh;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .location .container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .location iframe {
+        width: 100vw;
+    }
+    .family .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .family .container .grandparents {
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .family .container .parents {
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .family .container .children {
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .family .container .family-member img {
+        padding: 1rem;
+        margin: 0;
+        display: flex;
+        background: #fff;
+        width: 20rem;
+        height: auto;
+        overflow: hidden;
+        border: var(--border);
+        border-radius: 50%;
+        transition: all 0.2s linear;
+    }
+    .family .container .children .family-member img {
+        padding: 1rem;
+        margin: 0;
+        display: flex;
+        background: #fff;
+        width: 20rem;
+        height: auto;
+        overflow: hidden;
+        border: var(--border);
+        border-radius: 50%;
+        transition: all 0.2s linear;
+    }
+    .family .container .children .text {
+        font-weight: bold;
+        text-align: center;
+        color: #000;
+        font-size: 2rem;
+        padding: 1rem 0;
+        line-height: 1.8;
+    }
+    .family .container .family-member:hover img {
+        border: none;
+        box-shadow: 1px 1px 10px 4px var(--green);
+        cursor: pointer;
+    }
+
+    .footer {
+        background: #fff;
+        width: 100vw;
+        height: auto;
+    }
+    .footer .box-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 1rem;
+    }
+    .footer .box-container .box .logo {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer .box-container .box .logo img {
+        width: 75%;
+        height: auto;
+    }
+    .footer .box-container .box p {
+        text-align: left;
+    }
+    .footer .box-container .box span {
+        color: var(--theme);
+        padding-right: 0.5rem;
+    }
+    .footer .box-container .box .links {
+        display: block;
+        font-size: 1.7rem;
+        color: #000;
+        padding: 1rem 0;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .footer .box-container .box .links:hover span {
+        padding-right: 2rem;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .footer .credits {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        margin-top: 2rem;
+        padding: 1rem;
+        padding-top: 2.5rem;
+        font-size: 2rem;
+        color: #000;
+        border-top: var(--border);
+        font-family: "Arial", sans-serif;
+    }
+    .footer .credits a {
+        color: #000;
+        text-decoration: none;
+        font-family: "Arial", sans-serif;
+    }
+    .footer .credits a:hover {
+        color: var(--theme);
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .footer .credits .developer .name {
+        font-weight: bolder;
+        color: var(--theme);
+        font-family: "Arial", sans-serif;
+    }
+    .footer .credits .developer .heart {
+        font-variation-settings: "FILL" 1;
+        font-weight: bolder;
+        color: #f00;
+    }
+
+    .back-to-top {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+    }
+    .back-to-top .btn {
+        background: linear-gradient(to right, var(--theme), #fff);
+        background-size: 200% 200%;
+        animation: animateButtonBackground 1s linear forwards;
+        width: 6rem;
+        height: 6rem;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0;
+        color: var(--black);
+    }
+    .back-to-top .btn span {
+        font-size: 4rem;
+    }
+    .back-to-top .btn:hover {
+        background: linear-gradient(to right, var(--green), #fff);
+        background-size: 200% 200%;
+        animation: animateButtonBackground 1s linear forwards;
+        color: #fff;
+        cursor: pointer;
     }
 }
-
 /* Large Screens and Televisions (1441px and above) */
 @media only screen and (min-width: 1441px) {
-    /* Adjust styles for large screens and televisions */
-    body {
-        background-color: blue;
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    .material-symbols-rounded {
+        font-family: "Material Symbols Outlined";
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px; /* Preferred icon size */
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+        vertical-align: middle;
+    }
+
+    .heading {
+        font-size: 3.5rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 2rem 0;
+        color: #000;
+    }
+    .sub-heading {
+        font-weight: bold;
+        text-align: center;
+        color: #000;
+        font-size: 2rem;
+        padding: 1rem 0;
+        line-height: 1.8;
+    }
+    .text {
+        font-size: 1.7rem;
+        text-align: center;
+        padding: 1rem 0;
+        color: #000;
+    }
+    .heading span {
+        background: var(--theme);
+        color: #fff;
+        display: inline-block;
+        padding: 0.5rem 3rem;
+        clip-path: polygon(100% 0%, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+    }
+    @keyframes animateButtonBackground {
+        0% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .header {
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 2rem 2%;
+        background: #fff;
+        box-shadow: var(--box-shadow);
+    }
+    .header .navbar-left {
+        display: flex;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .logo a {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #000;
+    }
+    .logo a:hover {
+        color: var(--theme);
+        cursor: pointer;
+    }
+    .logo img {
+        margin-right: 0.5rem;
+        width: 4.5rem;
+        height: auto;
+    }
+
+    .header .navbar a:hover {
+        color: var(--theme);
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .header .navbar-right {
+        display: flex;
+    }
+    .header .navbar-right span {
+        font-size: 2.5rem;
+        height: 4.5rem;
+        width: 4.5rem;
+        line-height: 4.5rem;
+        color: #000;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    #menu-btn {
+        display: none;
+    }
+    .header .menu {
+        display: none;
+    }
+    .header .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        position: absolute;
+        top: 110%;
+        right: -110%;
+        padding: 1rem;
+        border-radius: var(--border);
+        box-shadow: var(--box-shadow);
+        width: 12rem;
+        background: #fff;
+    }
+    .header .menu a {
+        font-size: 2rem;
+        font-weight: 500;
+        margin: 0 1rem;
+        color: #000;
+    }
+    .header .menu a :hover {
+        color: var(--theme);
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .header .menu.active {
+        right: 0;
+    }
+    .pendulum:hover {
+        animation: pendulum 1s infinite;
+        cursor: pointer;
+    }
+    .wheel:hover {
+        animation: wheel 1s infinite;
+        cursor: pointer;
+    }
+    @keyframes pendulum {
+        0% {
+            font-variation-settings: "FILL" 0;
+            transform: rotate(20deg);
+        }
+        50% {
+            font-variation-settings: "FILL" 1;
+            transform: rotate(-20deg);
+        }
+        100% {
+            font-variation-settings: "FILL" 0;
+            transform: rotate(20deg);
+        }
+    }
+    @keyframes wheel {
+        0% {
+            font-variation-settings: "FILL" 0;
+            transform: rotate(0deg);
+        }
+        50% {
+            font-variation-settings: "FILL" 1;
+            transform: rotate(180deg);
+        }
+        100% {
+            font-variation-settings: "FILL" 0;
+            transform: rotate(360deg);
+        }
+    }
+    .home {
+        display: flex;
+        justify-content: center;
+        margin-top: 9rem;
+        width: 100vw;
+        height: 90vh;
+    }
+    .home .container {
+        backdrop-filter: blur(0.5rem);
+        font-weight: bold;
+        text-align: center;
+        align-self: flex-end;
+        padding-bottom: 5rem;
+        z-index: 1;
+    }
+    .home img {
+        width: 100vw;
+        padding-top: 0;
+        margin-top: -2.5rem;
+        height: 91vh;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .location .container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .location iframe {
+        width: 100vw;
+    }
+    .family .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .family .container .grandparents {
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .family .container .parents {
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .family .container .children {
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .family .container .family-member img {
+        padding: 1rem;
+        margin: 0;
+        display: flex;
+        background: #fff;
+        width: 15rem;
+        height: auto;
+        overflow: hidden;
+        border: var(--border);
+        border-radius: 50%;
+        transition: all 0.2s linear;
+    }
+    .family .container .children .family-member img {
+        padding: 1rem;
+        margin: 0;
+        display: flex;
+        background: #fff;
+        width: 10rem;
+        height: auto;
+        overflow: hidden;
+        border: var(--border);
+        border-radius: 50%;
+        transition: all 0.2s linear;
+    }
+    .family .container .children .text {
+        font-size: 1.5rem;
+    }
+    .family .container .family-member:hover img {
+        border: none;
+        box-shadow: 1px 1px 10px 4px var(--green);
+        cursor: pointer;
+    }
+
+    .footer {
+        background: #fff;
+        width: 100vw;
+        height: auto;
+    }
+    .footer .box-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+        gap: 1rem;
+    }
+    .footer .box-container .box .logo {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer .box-container .box .logo img {
+        width: 75%;
+        height: auto;
+    }
+    .footer .box-container .box p {
+        text-align: left;
+    }
+    .footer .box-container .box span {
+        color: var(--theme);
+        padding-right: 0.5rem;
+    }
+    .footer .box-container .box .links {
+        display: block;
+        font-size: 1.7rem;
+        color: #000;
+        padding: 1rem 0;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .footer .box-container .box .links:hover span {
+        padding-right: 2rem;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .footer .credits {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        margin-top: 2rem;
+        padding: 1rem;
+        padding-top: 2.5rem;
+        font-size: 2rem;
+        color: #000;
+        border-top: var(--border);
+        font-family: "Arial", sans-serif;
+    }
+    .footer .credits a {
+        color: #000;
+        text-decoration: none;
+        font-family: "Arial", sans-serif;
+    }
+    .footer .credits a:hover {
+        color: var(--theme);
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .footer .credits .developer .name {
+        font-weight: bolder;
+        color: var(--theme);
+        font-family: "Arial", sans-serif;
+    }
+    .footer .credits .developer .heart {
+        font-variation-settings: "FILL" 1;
+        font-weight: bolder;
+        color: #f00;
+    }
+
+    .back-to-top {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+    }
+    .back-to-top .btn {
+        background: linear-gradient(to right, var(--theme), #fff);
+        background-size: 200% 200%;
+        animation: animateButtonBackground 1s linear forwards;
+        width: 6rem;
+        height: 6rem;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0;
+        color: var(--black);
+    }
+    .back-to-top .btn span {
+        font-size: 4rem;
+    }
+    .back-to-top .btn:hover {
+        background: linear-gradient(to right, var(--green), #fff);
+        background-size: 200% 200%;
+        animation: animateButtonBackground 1s linear forwards;
+        color: #fff;
+        cursor: pointer;
     }
 }
