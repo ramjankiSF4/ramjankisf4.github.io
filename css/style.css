@@ -501,7 +501,7 @@ section {
         padding: 1rem;
         border-radius: var(--border);
         box-shadow: var(--box-shadow);
-        width: 12rem;
+        width: 50vw;
         background: #fff;
     }
     .header .menu a {
@@ -517,7 +517,7 @@ section {
     }
 
     .header .menu.active {
-        right: 0;
+        right: 2%;
     }
     .pendulum:hover {
         animation: pendulum 1s infinite;
