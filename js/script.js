@@ -3,7 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuBtn = document.querySelector("#menu-btn");
   const backtotop = document.getElementById("back-to-top-btn");
   // Toggle menu visibility on click
-  menuBtn.onclick = () => menu.classList.toggle("active");
+
+  menuBtn.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
+
   // Remove menu visibility when scrolling
   window.onscroll = () => menu.classList.remove("active");
   // Initially hide the back-to-top button
