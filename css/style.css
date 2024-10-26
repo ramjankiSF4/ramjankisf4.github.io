@@ -39,6 +39,7 @@ html {
 }
 body {
     background: #eee;
+    transition: background-color 1s ease;
 }
 
 section {
