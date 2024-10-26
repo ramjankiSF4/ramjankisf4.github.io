@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.material-symbols-rounded {
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    vertical-align: middle;
+}
+:root {
+    --green: #046a38;
+    --theme: #ff671f;
+    --box-shadow: 0 0.5rem 1.5rem #000;
+    --border: 0.2rem solid #000;
+    --outline: 0.1rem solid #000;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all 0.2s linear;
+    font-family: "Poppins", Arial, sans-serif;
+    cursor: default;
+}
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+body {
+    background: #eee;
+}
+
+section {
+    padding: 2rem 9%;
+}
+
+.heading {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 2rem 0;
+    color: #000;
+}
+.sub-heading {
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    font-size: 2rem;
+    padding: 1rem 0;
+    line-height: 1.8;
+}
+.text {
+    font-size: 1.7rem;
+    text-align: center;
+    padding: 1rem 0;
+    color: #000;
+}
+.heading span {
+    background: var(--theme);
+    color: #fff;
+    display: inline-block;
+    padding: 0.5rem 3rem;
+    clip-path: polygon(100% 0%, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.8rem 3rem;
+    font-size: 1.7rem;
+    border: var(--border);
+    border-radius: 0.5rem;
+    color: #000;
+    cursor: pointer;
+    background: none;
+}
+.btn:hover {
+    cursor: pointer;
+    background: linear-gradient(to right, var(--green), #fff);
+    background-size: 200% 200%;
+    animation: animateButtonBackground 1s linear forwards;
+    color: #fff;
+}
+@keyframes animateButtonBackground {
+    0% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 9%;
+    background: #fff;
+    box-shadow: var(--box-shadow);
+}
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo a {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+.logo a:hover {
+    color: var(--theme);
+    cursor: pointer;
+}
+.logo img {
+    margin-right: 0.5rem;
+    width: 4.5rem;
+    height: auto;
+}
+.header .navbar a {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0 1rem;
+    color: #000;
+}
+
+.header .navbar a:hover {
+    color: var(--theme);
+    cursor: pointer;
+    font-weight: bold;
+}
+.header .navbar-right span {
+    font-size: 2.5rem;
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    color: #000;
+    margin-right: 0.3rem;
+    text-align: center;
+}
+
+#menu-btn {
+    display: none;
+}
+
+.pendulum:hover {
+    animation: pendulum 1s infinite;
+    cursor: pointer;
+}
+.wheel:hover {
+    animation: wheel 1s infinite;
+    cursor: pointer;
+}
+@keyframes pendulum {
+    0% {
+        font-variation-settings: "FILL" 0;
+        transform: rotate(20deg);
+    }
+    50% {
+        font-variation-settings: "FILL" 1;
+        transform: rotate(-20deg);
+    }
+    100% {
+        font-variation-settings: "FILL" 0;
+        transform: rotate(20deg);
+    }
+}
+@keyframes wheel {
+    0% {
+        font-variation-settings: "FILL" 0;
+        transform: rotate(0deg);
+    }
+    50% {
+        font-variation-settings: "FILL" 1;
+        transform: rotate(180deg);
+    }
+    100% {
+        font-variation-settings: "FILL" 0;
+        transform: rotate(360deg);
+    }
+}
+.home {
+    display: flex;
+    justify-content: center;
+    margin-top: 6.5rem;
+    width: 100vw;
+    height: 88vh;
+}
+
+.home .container {
+    display: flex;
+    width: 100vw;
+    height: 85vh;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.home img {
+    position: absolute;
+    width: 100vw;
+    height: 60vh;
+}
+
+.home .container .profile {
+    width: 40vh;
+    height: 40vh;
+}
+.home .container .profile img {
+    width: 40vh;
+    height: auto;
+    border: 0.5rem solid white;
+    border-radius: 50%;
+}
+.home .container .name {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 2rem 0;
+    color: #000;
+}
+
+.info .container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    justify-content: center;
+}
+
+.info .container .q {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem 0;
+    color: #000;
+}
+
+.info .container .a {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.7rem;
+    text-align: center;
+    padding: 1rem 0;
+    color: #000;
+}
+
+.footer {
+    background: #fff;
+    width: 100vw;
+    height: auto;
+}
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+    gap: 5rem;
+}
+.footer .box-container .box .logo {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer .box-container .box .logo img {
+    width: 75%;
+    height: auto;
+}
+.footer .box-container .box p {
+    text-align: left;
+}
+.footer .box-container .box span {
+    color: var(--theme);
+    padding-right: 0.5rem;
+}
+.footer .box-container .box .links {
+    display: block;
+    font-size: 1.7rem;
+    color: #000;
+    padding: 1rem 0;
+    text-align: left;
+    cursor: pointer;
+}
+
+.footer .box-container .box .links:hover span {
+    padding-right: 2rem;
+    cursor: pointer;
+}
+.footer .credits {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    padding-top: 2.5rem;
+    font-size: 2rem;
+    color: #000;
+    border-top: var(--border);
+    font-family: "Arial", sans-serif;
+}
+.footer .credits a {
+    color: #000;
+    text-decoration: none;
+    font-family: "Arial", sans-serif;
+}
+.footer .credits a:hover {
+    color: var(--theme);
+    cursor: pointer;
+}
+.footer .credits .developer .name {
+    font-weight: bolder;
+    color: var(--theme);
+    font-family: "Arial", sans-serif;
+}
+.footer .credits .developer .heart {
+    font-variation-settings: "FILL" 1;
+    font-weight: bolder;
+    color: #f00;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
+.back-to-top .btn {
+    background: linear-gradient(to right, var(--theme), #fff);
+    background-size: 200% 200%;
+    animation: animateButtonBackground 1s linear forwards;
+    width: 6rem;
+    height: 6rem;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    color: var(--black);
+}
+.back-to-top .btn span {
+    font-size: 4rem;
+}
+.back-to-top .btn:hover {
+    background: linear-gradient(to right, var(--green), #fff);
+    background-size: 200% 200%;
+    animation: animateButtonBackground 1s linear forwards;
+    color: #fff;
+    cursor: pointer;
+}
